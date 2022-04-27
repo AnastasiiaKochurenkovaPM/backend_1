@@ -1,25 +1,25 @@
 {
   "development": {
-    "username": "root",
-    "password": "01152205",
-    "database": "Shelters",
-    "host": "127.0.0.1",
+    "username": "bf7ff2ffc45a70",
+    "password": "80c38566",
+    "database": "heroku_f520802781111f9",
+    "host": "eu-cdbr-west-02.cleardb.net",
     "port": 3306,
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": "01152205",
-    "database": "database_test",
+    "username": "bf7ff2ffc45a70",
+    "password": "80c38566",
+    "database": "eu-cdbr-west-02.cleardb.net",
     "host": "127.0.0.1",
     "port": 3306,
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": "01152205",
+    "username": "bf7ff2ffc45a70",
+    "password": "80c38566",
     "database": "database_production",
-    "host": "127.0.0.1",
+    "host": "eu-cdbr-west-02.cleardb.net",
     "port": 3306,
     "dialect": "mysql"
   }
