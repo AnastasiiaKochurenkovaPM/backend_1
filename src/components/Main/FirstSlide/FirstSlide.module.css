@@ -1,0 +1,83 @@
+.firstSlide {
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, 300px) minmax(auto, 820px) minmax(auto, 350px) 1fr;
+    grid-template-rows: minmax(auto, 200px) minmax(auto, 300px) minmax(auto, 350px);
+    grid-template-areas:". paw-left title . ."
+                        ". . text paw-right ."
+                        ". dog buttons cat .";
+    margin-bottom: 40px;
+}
+
+.title {
+    grid-area: title;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 155px;
+    letter-spacing: 0.145em;
+    text-align: center;
+    white-space: nowrap;
+    color: var(--color-header);
+
+}
+
+
+.dog {
+    grid-area: dog;
+    /*background-color: black;*/
+    /*grid-row: 2/4;*/
+    grid-column: 2;
+    align-self: end;
+    justify-self: center;
+
+}
+
+.paw_left {
+    grid-area: paw-left;
+    align-self: start;
+    justify-self: center;
+}
+
+.paw_right {
+    grid-area: paw-right;
+    align-self: end;
+    justify-self: center;
+}
+
+.cat {
+    grid-area: cat;
+    /*grid-column: 3;*/
+    /*grid-row: 3;*/
+    align-self: end;
+    justify-self: center;
+}
+
+.buttons {
+    grid-area: buttons;
+    margin: 0 auto;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+
+}
+
+.text {
+    grid-area: text;
+}
+
+.btn {
+    background: var(--color-primary);
+    color: var(--color-white);
+    width: 340px;
+    cursor: pointer;
+    border-radius: 65px;
+    font-size: 20px;
+    height: 90px;
+    white-space: nowrap;
+    line-height: 300%;
+    font-family: Inter,sans-serif;
+}
+
+
+

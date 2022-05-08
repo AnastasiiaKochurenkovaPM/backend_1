@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+
+.root {
+    height: 100%;
+}
+
+/*-----------Основні налаштування------------*/
+*,
+*::before,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+img {
+    vertical-align: top;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Inter', sans-serif;
+    color: var(--color-black);
+    background: var(--color-white);
+    font-size: 20px;
+    /*line-height: 1;*/
+}
+
+ul, ol, li {
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: inherit;
+    font-size: inherit;
+
+}
+
+:root {
+    --color-header: #D6D899;
+    --color-main-footer: #E8E9D1;
+    --color-primary: #FD7D00;
+    --color-white: #fff;
+    --color--scrollbar: #E8E9D1;
+    --color-black: #240E10;
+    --color-yellow: #FFDB49;
+    --color-dark-yellow: #E7C267;
+    --color-blue-footer: #0066CC;
+    --color-yellow-footer: #FFCC00;
+
+    --transition: all 400ms ease;
+}

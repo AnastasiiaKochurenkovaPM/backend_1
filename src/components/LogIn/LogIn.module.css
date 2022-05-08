@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap");
+
+input {
+  padding: 20px;
+  height: 50px;
+  width: 500px;
+  margin: 0px 68px;
+  border: 1px solid #d7dadd;
+  box-sizing: border-box;
+  border-radius: 35px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
+  padding-left: 70px;
+}
+
+.formInput {
+  margin-top: 35px;
+}
+
+.input {
+  margin-top: 0px;
+}
+.reg_mar {
+  margin-top: 12px;
+}
+.reg_for_volonteer {
+  width: 636px;
+  height: 495px;
+  left: calc(50% - 636px / 2 - 442px);
+  top: 259px;
+  padding-top: 13px;
+  background: #e8e9d1;
+  border: 1px solid #e5e8ed;
+  box-sizing: border-box;
+  box-shadow: 0px 60px 80px -20px rgba(30, 33, 44, 0.16),
+    0px 26px 24px -10px rgba(30, 33, 44, 0.1),
+    0px 12px 10px -6px rgba(30, 33, 44, 0.08),
+    0px 4px 4px -4px rgba(30, 33, 44, 0.05);
+  border-radius: 4px;
+}
+
+div.reg_for_volonteer h1 {
+  font-weight: 700;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-size: 28px;
+  line-height: 150%;
+  align-items: center;
+  text-align: center;
+  color: #1e212c;
+}
+.button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  height: 50px;
+  margin-left: 168px;
+  margin-top: 50px;
+  background: linear-gradient(55.95deg, #fd7d00 0%, #f75e05 100%);
+  border-radius: 35px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 44px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  border: none;
+}
+.bott_ref {
+  width: 500px;
+  height: 21px;
+  margin-left: 145px;
+  margin-top: 5px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+
+}
+.bott_ref a {
+  color: #ff3f3a;
+}
+span {
+  font-size: 14px;
+  padding: 3px 75px 3px 70px;
+  color: #ff3f3a;
+  display: none;
+}
+input:invalid[focused="true"] {
+  border: 1px solid #ff3f3a;
+}
+input:invalid[focused="true"] ~ span {
+  display: block;
+}
+
+.LogIn {
+  display: flex;
+  max-width: 1515px;
+  justify-content: center;
+  gap: 100px;
+}
+
+.form {
+    margin-top: 159px;
+}
+
+.cat {
+    margin-top: 40px;
+}

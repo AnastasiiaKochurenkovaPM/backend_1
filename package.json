@@ -1,37 +1,44 @@
 {
-  "name": "backend_1",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "nodemon app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AnastasiiaKochurenkovaPM/backend_1.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AnastasiiaKochurenkovaPM/backend_1/issues"
-  },
-  "homepage": "https://github.com/AnastasiiaKochurenkovaPM/backend_1#readme",
+  "name": "soft",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.20.0",
-    "cookie-parser": "^1.4.6",
-    "cors": "^2.8.5",
-    "dotenv": "^16.0.0",
-    "express": "^4.18.0",
-    "express-handlebars": "^6.0.5",
-    "express-session": "^1.17.2",
-    "hbs": "^4.2.0",
-    "joi": "^17.6.0",
-    "jquery": "^3.6.0",
-    "jsonwebtoken": "^8.5.1",
-    "mysql2": "^2.3.3",
-    "nodemon": "^2.0.15",
-    "sequelize": "^6.19.0"
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.0.1",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.27.2",
+    "concurrently": "^7.1.0",
+    "http-proxy-middleware": "^2.0.6",
+    "nodemon": "^2.0.16",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.3.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

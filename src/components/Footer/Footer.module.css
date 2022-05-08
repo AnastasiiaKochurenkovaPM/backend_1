@@ -1,0 +1,6 @@
+.footer {
+    grid-area: footer;
+    /*display: grid;*/
+    /*grid-template: minmax(120px, auto) repeat(2,minmax(30px, auto))  / 1fr;*/
+    /*grid-template-areas:*/
+}

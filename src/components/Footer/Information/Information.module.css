@@ -1,0 +1,117 @@
+.information {
+    background: var(--color-main-footer);
+    padding: 20px 0;
+    display: grid;
+    grid-template: minmax(80px, auto) / 1fr repeat(2, minmax(auto, 375px))  minmax(auto,300px) minmax(auto, 500px)  1fr;
+    grid-template-areas: ". a b c d .";
+    gap: 10px;
+    /*grid-area: info;*/
+    /*display: grid;*/
+    /*grid-template: !*minmax(auto, 120px)*! 120px / 1fr repeat(4,minmax(375px,auto)) 1fr ;*/
+}
+
+.information>div {
+    justify-self: center;
+}
+
+.social {
+    grid-area: a;
+}
+
+.social_title {
+    color: var(--color-primary);
+    letter-spacing: 0.85em;
+    line-height: 150%;
+    font-weight: 900;
+    padding-bottom: 10px;
+}
+
+.icons {
+    display: flex;
+    gap: 25px;
+}
+
+.sign {
+    grid-area: b;
+
+}
+
+.sign input {
+    width: 280px;
+    height: 36px;
+    background: rgba(17, 15, 15, 0.12);
+    border: 1px solid rgba(36, 14, 16, 0.2);
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding-left: 5px;
+    padding-right: 30px;
+}
+
+.contact {
+    grid-area: c;
+}
+
+.map {
+    grid-area: d;
+
+}
+
+.map_list {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 15px;
+}
+
+.map_list div {
+    white-space: nowrap;
+}
+
+.joint {
+    font-size: 16px;
+}
+
+.joint > div:nth-child(1) {
+    font-weight: 700;
+    line-height: 150%;
+    padding-bottom: 10px;
+}
+
+.joint div:not(:first-child) {
+    line-height: 160%;
+}
+
+.long {
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-top: 1px solid #000;
+    border-left: 1px solid #000;
+    transform: rotate(135deg);
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+}
+
+.input {
+    position: relative;
+}
+
+.long::after,
+.long-arrow-left::after{
+    content: "";
+    display: block;
+    width: 1px;
+    height: 12px;
+    background-color: black;
+    transform: rotate(-45deg) translate(4px, 1px);
+    left: 0px;
+    top: 0px;
+}
+
+.map_title {
+    padding-bottom: 20px;
+}
+
+
+

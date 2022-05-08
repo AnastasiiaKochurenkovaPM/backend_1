@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
+
+.regForm{
+    display: flex;
+    max-width: 1515px;
+    justify-content: center;
+    gap: 100px;
+}
+svg {
+    width:  auto;
+    height: auto;
+}
+.input-reg{
+    margin-top: 0px;
+}
+.reg-mar{
+    margin-top: 12px ;
+}
+.reg-for-volonteer{
+    width: 636px;
+    height: 750px;
+    left: calc(50% - 636px/2 + 427px);
+    top: 135px;
+    background: #E8E9D1;
+    border: 1px solid #E5E8ED;
+    box-sizing: border-box;
+    box-shadow: 0px 60px 80px -20px rgba(30, 33, 44, 0.16), 0px 26px 24px -10px rgba(30, 33, 44, 0.1), 0px 12px 10px -6px rgba(30, 33, 44, 0.08), 0px 4px 4px -4px rgba(30, 33, 44, 0.05);
+    border-radius: 4px;
+}
+
+div.reg-for-volonteer h1{
+    font-weight: 700;
+    font-family: 'Inter',sans-serif;
+    font-style: normal;
+    font-size: 28px;
+    line-height: 150%;
+    align-items: center;
+    text-align: center;
+    color: #1E212C;
+}
+.button1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 50px;
+    margin-left: 168px;
+    margin-top: 16px;
+    background: linear-gradient(55.95deg, #FD7D00 0%, #F75E05 100%);
+    border-radius: 35px;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 44px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    border:none;
+}
+.bott-ref{
+    width: 256px;
+    height: 21px;
+    margin-left: 196px;
+    margin-top: 2px;
+    font-family: 'Inter',sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+}
+.bott-ref a{
+color:#FF3F3A ;
+}
+.err{
+    font: 11px;
+    color:#FF3F3A ;
+}
+span{
+    font-size: 14px;
+    padding:3px 75px 3px 70px;
+    color: #FF3F3A;
+    display: none;
+}
+input:invalid[focused="true"]{
+    border: 1px solid #FF3F3A ;
+}
+input:invalid[focused="true"]~span{
+    display: block;
+}
+
+.item {
+    color: black;
+}
+
+.active {
+    color: var(--color-primary);
+}

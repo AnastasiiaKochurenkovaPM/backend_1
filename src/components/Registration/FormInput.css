@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
+
+input{
+    padding: 20px ;
+    height: 50px;
+    width: 500px;
+    margin: 0px 68px;
+    border: 1px solid #D7DADD;
+    box-sizing: border-box;
+    border-radius: 35px;
+}
+label {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    padding-left: 70px;
+}
+.formInput{
+    margin-top: 0px;
+}

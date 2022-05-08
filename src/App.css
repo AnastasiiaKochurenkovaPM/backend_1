@@ -1,0 +1,52 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');*/
+/*outline: 0;*/
+/*----------Головна сторінка---------------*/
+
+.wrapper {
+    display: grid;
+    min-height: 100%;
+
+    grid-template: minmax(90px, auto) 1fr minmax(180px, auto) / 1fr;
+    grid-template-areas:
+            "header"
+            "content"
+            "footer";
+
+
+}
+
+.wrapper__content {
+    grid-area: content;
+    background: var(--color-white);
+    padding: 30px 10px;
+
+    /*display: grid;*/
+    /*grid-template-areas: ;*/
+}
+
+/*.column {*/
+/*    margin: 0 9% 0 9%;*/
+
+/*}*/
+
+/*a {
+    color: var(--color-black);
+}
+
+a:hover {
+    color: var(--color-primary);
+    transition: var(--transition);
+}*/
+
+/*a.main {*/
+/*    font-size: 20px;*/
+/*    font-weight: 500;*/
+/*}*/
+
+/*h1 {
+    text-align: center;
+    color: var(--color--scrollbar);
+    font-size: 95px;
+    letter-spacing: 0.145em;
+}*/
+
