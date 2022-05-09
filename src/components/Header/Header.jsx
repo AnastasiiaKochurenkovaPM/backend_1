@@ -10,9 +10,13 @@ const Header = (props) => {
     // const auth = useAuth();
     let navigate = useNavigate();
     const authUser = props.authUser ? props.authUser : false
+    const [isLoggedIn, setIsLoggedIn] = useState(authUser)
+    console.log({isLoggedIn})
 
     const onLogOut = () => {
         localStorage.clear();
+        localStorage.setItem('isLoggedIn', false)
+        setIsLoggedIn('false')
         navigate("/LogIn");
     };
 
@@ -62,7 +66,7 @@ const Header = (props) => {
                 <NavLink className={setActive} to='/AboutUs'> Про нас</NavLink>
             </div>
 
-            {(authUser === 'true') ? (
+            {(isLoggedIn === 'true') ? (
                 <>
                     <div>
                         <NavLink className={setActive} to='/Cabinet'>
