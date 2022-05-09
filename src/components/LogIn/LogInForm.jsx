@@ -55,6 +55,7 @@ const LogInForm = () => {
     })
     alert(result.data.message)
     if(result.data.message === "Успішний вхід!"){
+      localStorage.setItem('isLoggedIn', true)
      navigate('/Main')
     }else{
       navigate('/LogIn')

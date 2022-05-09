@@ -13,7 +13,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <div className='wrapper'>
-                <Header/>
+                <Header authUser={localStorage.getItem('isLoggedIn')}/>
                 <div className="wrapper__content">
                     <Routes>
                         <Route path='/*' element={<Main/>}/>
