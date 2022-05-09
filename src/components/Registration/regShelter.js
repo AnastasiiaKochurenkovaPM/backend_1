@@ -3,7 +3,7 @@ import FormInput from "./FormInput";
 import React, {useEffect, useState} from "react";
 import Axios from "axios";
 import s from './registr.css';
-import {NavLink, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const App = () => {
 
@@ -81,9 +81,6 @@ const App = () => {
         }
     ]
 
-    const [regStatus, setRegStatus] = useState("");
-    //const [isLoading, setIsLoading] = useState(false);
-
     const onChange=(e)=>{
         setValues({...values,[e.target.name]: e.target.value})
     }
@@ -91,23 +88,24 @@ const App = () => {
 
     const navigate = useNavigate()
 
-    const registration = (req, res) => {
-        
-        Axios.post("http://localhost:3001/Registration", {
+    const registration = async (e) => {
+        e.preventDefault()
+        const result = await Axios.post("http://localhost:3001/registration", {
             nameShelter: values.username,
             city: values.city,
             email: values.email,
             phone: values.phonenumber,
             password: values.password
-        }).then (res => {
-            alert(res.data.message)
+        }, {
+            withCredentials : true
+          })
+          alert(result.data.message)
+          if(result.data.message === "Реєстрація успішна!"){
             navigate('/Main')
-        })
+          }else{
+            navigate('/Registration')
+          }    
     }
-    //в успішній реєстрації переведення має бути на Main
-
-    
-    const setActive = ({isActive}) => isActive ? s.active : s.item
 
     return (
         <div className="reg-for-volonteer">
@@ -120,27 +118,9 @@ const App = () => {
                         ))}
                     </div>
 
-                    <div className="err">
-                    <h6>{regStatus}</h6>
-                    </div>
-                    
-                    {/* <button type="submit" className="button1">Зареєструватися</button> */}
-                    {/* {(registration = true) ? (
-                        <>
-                        <NavLink className={setActive} to = "/Main"></NavLink>
-                        </>
-                    ) : (
-                        <>
-                        <NavLink className={setActive} to = "/Registration"></NavLink>
-                        </>
-                    )} */}
-
                  <div className={s.name}>
                       <button type="submit" className="button1" onClick={registration}>Зареєструватися</button>
-                
-                   
                 </div> 
-                
                 
                     <p className='bott-ref'>Вже маєте обліковий запис? <a href="login">Ввійти</a></p>
                  </form>

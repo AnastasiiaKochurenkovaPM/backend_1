@@ -1,36 +1,51 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import s from "./Cabinet.module.css";
 import MyAds from "./MyAds";
+import axios from "axios";
+
 
 const Cabinet = () => {
+
+  const [data, setData] = useState([]);
+
+  useEffect(() =>{
+   axios.get('http://localhost:3001/Cabinet', {
+    withCredentials : true
+  })
+   .then(res => {
+    setData(res.data)
+   }).catch(err => console.log(err))
+  },[])
+
   return (
     <>
-      <div className={s.cabinet}>
-        <div className={s.info}>
+        <div className={s.cabinet}>
+          <div className={s.info}>
           <h2 className={s.h2}>Особисті данні</h2>
           <div className={s.top}>
             <div className={s.item}>
               <div className={s.name}>Назва притулку</div>
-              <div>Animal free</div>
+              <div> {data.nameShelter}</div> {/* тут  я маю виводити дані з бізи*/}
             </div>
             <div className={s.item}>
               <div className={s.name}>Місто</div>
-              <div>Львів</div>
+              <div>{data.city}</div>{/* тут  я маю виводити дані з бізи*/}
             </div>
             <div className={s.item}>
               <div className={s.name}>Email</div>
-              <div>animals.free@gmail.com</div>
+              <div>{data.email}</div>{/* тут я маю виводити дані з бізи*/}
             </div>
             <div className={s.item}>
               <div className={s.name}>Номер телефону</div>
-              <div>+380972442551</div>
+              <div>{data.phone}</div>{/* тут  я маю виводити дані з бізи*/}
             </div>
           </div>
+          
           <div className={s.buttons}>
             <button className={s.btn}>Редагувати особисті дані</button>
             <button className={s.btn}>Додати оголошення</button>
           </div>
-        </div>
+  </div>  
 
         <div>
           <svg

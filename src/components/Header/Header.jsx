@@ -1,20 +1,20 @@
-import React from "react";
+import React, {useState} from "react";
 import s from './Header.module.css'
-import {Link, NavLink, useNavigate } from "react-router-dom";
-//import {Button} from "@material-ui/core";
-//import useAuth from "../../hooks/useAuth";
+import { NavLink, useNavigate } from "react-router-dom";
+import axios from "axios"
 
-
-const setActive = ({isActive}) => isActive ? s.active : s.item
-// const auth = useAuth();
-// const navigate = useNavigate();
-
-//   const onLogOut = () => {
-//     auth.logOut();
-//     navigate("/LogIn");
-//   };
+//const {user, setUser} = use
 
 const Header = (props) => {
+    const setActive = ({isActive}) => isActive ? s.active : s.item
+// const auth = useAuth();
+let navigate = useNavigate();
+
+   const onLogOut = () => {
+     localStorage.clear();
+     navigate("/LogIn");
+   };
+
     return (
         <header className={s.header}>
             <div className={s.logo}>
@@ -61,37 +61,35 @@ const Header = (props) => {
                 <NavLink className={setActive} to='/AboutUs'> Про нас</NavLink>
             </div>
 
-            {/* {auth.isLoaded &&
-            (auth.user ? (
+            {(authUser === true) ? (
                 <>
                 <div>
-                    <Button className={setActive} component={Link} to='/LogIn'>
-                        {auth.user.nameShelter}
-                    </Button>
-                </div>
-                <div>
-                    <Button className={setActive} onClick={onLogOut}>
-                        Вийти
-                    </Button>
+                <NavLink className={setActive} to='/Cabinet'>     
+                   <button className={s.btn}>Особистий кабінет</button>
+               </NavLink>
+            </div>
+            <div>
+                <NavLink className={setActive} to='/LogIn'>
+                    <button className={s.btn} onClick={onLogOut}>Вийти</button>
+                </NavLink>
                 </div>
                 </>
             ) : (
                 <>
                 <div>
-                     <Button className={setActive} component={Link} to='/LogIn'>
-                        Увійти
-                     </Button>
-                </div>
-
-                <div>
-                    <Button className={setActive} component={Link} to='/Registration'>
-                        Зареєструватися
-                     </Button>
+                <NavLink className={setActive} to='/Login'>     
+                   <button className={s.btn}>Увійти</button>
+               </NavLink>
+            </div>
+            <div>
+                <NavLink className={setActive} to='/Registration'>
+                    <button className={s.btn}>Зареєструватися</button>
+                </NavLink>
                 </div>
                 </>
-            ))} */}
+            )}
 
-            <div>
+            {/* <div>
                <NavLink className={setActive} to='/Login'>     
                    <button className={s.btn}>Увійти</button>
                </NavLink>
@@ -100,7 +98,7 @@ const Header = (props) => {
                 <NavLink className={setActive} to='/Registration'>
                     <button className={s.btn}>Зареєструватися</button>
                 </NavLink>
-            </div>
+            </div> */}
 
             
 

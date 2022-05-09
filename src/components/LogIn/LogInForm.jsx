@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FormInput from "./FormInput";
 import s from "./LogIn.module.css";
-import { Navigate, NavLink, useNavigate} from "react-router-dom";
+import { NavLink, useNavigate} from "react-router-dom";
 import Axios from "axios";
 
 const LogInForm = () => {
@@ -36,27 +36,31 @@ const LogInForm = () => {
     },
   ];
 
-  const [regStatus, setRegStatus] = useState("");
+
   const onChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
+
+  //const authUser = false
   let navigate = useNavigate();
-  const setActive = ({isActive}) => isActive ? s.active : s.item
 
-
-
-const login = (req, res) => {
-  Axios.post("http://localhost:3001/login", {
-      email: values.email,
-      password: values.password
-  }).then((res)=>{
-    alert(res.data.message)
-      navigate('/Main');
-  })
-   
-}
-
+  const login = async (e) => {
+    e.preventDefault()
+    const result = await Axios.post("http://localhost:3001/login", {
+        email: values.email,
+        password: values.password
+    }, {
+      withCredentials : true
+    })
+    alert(result.data.message)
+    if(result.data.message === "Успішний вхід!"){
+     navigate('/Main')
+    }else{
+      navigate('/LogIn')
+    }
+     
+  }
 
   return (
     <div className={s.reg_for_volonteer}>
@@ -72,10 +76,6 @@ const login = (req, res) => {
                 onChange={onChange}
               />
             ))}
-          </div>
-
-          <div className="err">
-            <h6>{regStatus}</h6>
           </div>
 
           <div className={s.name}>

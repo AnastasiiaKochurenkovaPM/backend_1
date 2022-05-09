@@ -5,11 +5,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 
-const shelterForm = async(req,res)=>{
-  await res.redirect('/registration');
-}
-
-
+//реєстрація
 const saveShelter = async(req,res)=>{
    const emailExist = await Shelters.findOne({
       where: {email:req.body.email}
@@ -32,14 +28,11 @@ const saveShelter = async(req,res)=>{
     //const token = generateJwt(shelter.id, shelter.email, shelter.role)
     console.log(shelter);
     //return res.json({token})
-} 
-   }
-
-const loginForm = async(req,res)=>{
-  await res.render('/login');
+   } 
 }
 
 
+//функція логіну
 const authForm = async(req,res)=>{
    const shelter = await Shelters.findOne({ where : {email : req.body.email }});
    if(shelter){
@@ -47,8 +40,10 @@ const authForm = async(req,res)=>{
     if(password_valid){
           token = jwt.sign({ "id" : shelter.id, "email" : shelter.email}, process.env.JWT_KEY);
           console.log("Success");
+          req.session.userId = shelter.id  
+          console.log(req.session.userId);
           res.send({message: "Успішний вхід!"});
-        //res.render( '/main' );
+          req.session.userId
     } else {
          console.log("Don't true password");
          res.send( { message : "*Невірний пароль" });
@@ -61,20 +56,22 @@ const authForm = async(req,res)=>{
 }
 
 
-
-//    const viewUser = async(req,res)=>{
-//       const{id} = req.params;
-//       const shelter = await Shelter.findOne({
-//           where:{
-//               id:id
-//           },
-//           raw:true
-//       }).catch(error=>console.log(error))
-       
-//       res.render('user', {shelter})///звяття та відображення даних
-//   }
+//функція для перегляду користувача(в особистому кабінеті)
+    const viewUser = async(req,res)=>{
+      if (req.session.userId) {
+         const id = req.session.userId;
+         const shelter = await Shelters.findOne({
+               where:{
+                   id:id
+               },
+               raw:true
+           }).catch(error=>console.log(error))
+           console.log(shelter);
+           return res.json(shelter).status(200)
+        }
+   }
    
 
 module.exports = {
-   shelterForm, saveShelter, loginForm, authForm
+   saveShelter, authForm, viewUser
 }
