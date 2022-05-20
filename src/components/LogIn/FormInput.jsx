@@ -10,7 +10,7 @@ function FormInput(props) {
   return (
     <div className={s.formInput}>
       <label>{label}</label>
-      <input
+      <input className="input2"
         {...inputProps}
         onChange={onChange}
         required

@@ -4,12 +4,13 @@ import React, {useEffect, useState} from "react";
 import Axios from "axios";
 import s from './registr.css';
 import {useNavigate} from "react-router-dom";
+import { AuthContext } from "../../authContext/index";
 
 const App = () => {
 
     const [values, setValues] = useState({
         username: "",
-        city: "",
+        city:"",
         email: "",
         phonenumber: "",
         password: "",
@@ -84,7 +85,6 @@ const App = () => {
     const onChange=(e)=>{
         setValues({...values,[e.target.name]: e.target.value})
     }
-    //const isreg = true
 
     const navigate = useNavigate()
 
@@ -101,8 +101,10 @@ const App = () => {
           })
           alert(result.data.message)
           if(result.data.message === "Реєстрація успішна!"){
+            AuthContext.isLoaded = true
             navigate('/Main')
           }else{
+            AuthContext.isLoaded = false 
             navigate('/Registration')
           }    
     }

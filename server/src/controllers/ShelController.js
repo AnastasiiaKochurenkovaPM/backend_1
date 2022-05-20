@@ -1,9 +1,6 @@
 const {Shelters} = require('../model/models');
 const bcrypt = require('bcryptjs');
-//const Model = require('../model/RegShelter');
-//const RegShelter = Model.RegShelter;
 const jwt = require('jsonwebtoken');
-
 
 //реєстрація
 const saveShelter = async(req,res)=>{
@@ -23,14 +20,11 @@ const saveShelter = async(req,res)=>{
          phone: req.body.phone,  
          password: bcrypt.hashSync(req.body.password, 10), 
     }).catch(error=>console.log(error));
+    req.session.userId = shelter.id
     res.send({message: "Реєстрація успішна!" });
-    //res.status(200)
-    //const token = generateJwt(shelter.id, shelter.email, shelter.role)
     console.log(shelter);
-    //return res.json({token})
    } 
 }
-
 
 //функція логіну
 const authForm = async(req,res)=>{
@@ -43,18 +37,15 @@ const authForm = async(req,res)=>{
           req.session.userId = shelter.id  
           console.log(req.session.userId);
           res.send({message: "Успішний вхід!"});
-          req.session.userId
     } else {
          console.log("Don't true password");
          res.send( { message : "*Невірний пароль" });
       }
-    
     }else{
        console.log("User don`t exist");
        res.send({ message : "Користувача не знайдено!" });
    };
 }
-
 
 //функція для перегляду користувача(в особистому кабінеті)
     const viewUser = async(req,res)=>{
@@ -70,8 +61,19 @@ const authForm = async(req,res)=>{
            return res.json(shelter).status(200)
         }
    }
+
+
+   const logout = async(req,res)=>{
+      //req.logOut();
+      if(req.session.userId){
+
+         req.session.userId === null
+            console.log("Success destroy session")
+            return res.json(null).status(200)
+      }
+   }
    
 
 module.exports = {
-   saveShelter, authForm, viewUser
+   saveShelter, authForm, viewUser, logout
 }

@@ -1,0 +1,90 @@
+.container{
+    margin-top: 80px;
+    height: 300px;
+    width: 300px;
+    border-radius: 5px;
+}
+.img-holder{
+    margin: auto;
+    width: 300px;
+    height: 300px;
+    border-radius: 5px;
+}
+.img{
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+#input[type="file"] {
+    display: none;
+}
+.label{
+    margin-top: -300px;
+    margin-left: 0px;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+}
+img{
+    border-radius:5px ;
+}
+.image-upload{
+    margin-top: 0px;
+    width: 300px;
+    height: 300px;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.label2{
+    margin-top: -140px;
+    margin-left: 0px;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+}
+img{
+    border-radius:5px ;
+}
+.image-upload2{
+    margin-top: 0px;
+    width: 140px;
+    height: 140px;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+.img2{
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+}
+.container2{
+    margin-top: 20px;
+    height: 140px;
+    width: 140px;
+    border-radius: 5px;
+}
+.img-holder2{
+    margin: auto;
+    width: 140px;
+    height: 140px;
+    border-radius: 5px;
+}
+#input2[type="file"] {
+    display: none;
+}
+#input3[type="file"] {
+    display: none;
+}
+.smaller-download{
+    display: flex;
+    gap: 20px;
+}

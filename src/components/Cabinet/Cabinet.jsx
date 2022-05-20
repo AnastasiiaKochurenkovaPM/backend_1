@@ -2,20 +2,22 @@ import React, {useEffect, useState} from "react";
 import s from "./Cabinet.module.css";
 import MyAds from "./MyAds";
 import axios from "axios";
+import {NavLink} from "react-router-dom";
+import PetAdvertisement from "../PetAdvertisement/PetAdvertisement";
 
-
+const setActive = ({isActive}) => isActive ? s.active : s.item
 const Cabinet = () => {
 
   const [data, setData] = useState([]);
 
   useEffect(() =>{
-   axios.get('http://localhost:3001/Cabinet', {
-    withCredentials : true
-  })
-   .then(res => {
-    setData(res.data)
-   }).catch(err => console.log(err))
-  },[])
+    axios.get('http://localhost:3001/Cabinet', {
+     withCredentials : true
+   })
+    .then(res => {
+     setData(res.data)
+    }).catch(err => console.log(err))
+   },[])
 
   return (
     <>
@@ -43,7 +45,10 @@ const Cabinet = () => {
           
           <div className={s.buttons}>
             <button className={s.btn}>Редагувати особисті дані</button>
-            <button className={s.btn}>Додати оголошення</button>
+
+            <NavLink to="/PetAdvertisement">
+              <button className={s.btn}>Додати оголошення</button>
+            </NavLink>
           </div>
   </div>  
 

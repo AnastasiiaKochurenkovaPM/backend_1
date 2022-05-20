@@ -3,6 +3,7 @@ import FormInput from "./FormInput";
 import s from "./LogIn.module.css";
 import { NavLink, useNavigate} from "react-router-dom";
 import Axios from "axios";
+import { AuthContext } from "../../authContext/index";
 
 const LogInForm = () => {
 
@@ -41,8 +42,6 @@ const LogInForm = () => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
 
-
-  //const authUser = false
   let navigate = useNavigate();
 
   const login = async (e) => {
@@ -55,9 +54,10 @@ const LogInForm = () => {
     })
     alert(result.data.message)
     if(result.data.message === "Успішний вхід!"){
-      localStorage.setItem('isLoggedIn', true)
+      AuthContext.isLoaded = true 
      navigate('/Main')
     }else{
+      AuthContext.isLoaded = false 
       navigate('/LogIn')
     }
      

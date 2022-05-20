@@ -15,7 +15,6 @@ label {
     font-family: 'Inter', sans-serif;
     padding-left: 70px;
 }
-
-.formInput1{
-    margin-top: 0px;
+.error{
+ margin-top: -30px;
 }

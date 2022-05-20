@@ -22,7 +22,7 @@
 }
 
 
-.dog {
+.pes {
     grid-area: dog;
     /*background-color: black;*/
     /*grid-row: 2/4;*/
@@ -64,9 +64,6 @@
 
 .text {
     grid-area: text;
-    font-size: 22px;
-    text-align:justify;
-    letter-spacing: 0.055em;
 }
 
 .btn {

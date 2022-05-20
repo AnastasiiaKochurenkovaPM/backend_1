@@ -1,0 +1,90 @@
+.secondSlide {
+  display: grid;
+  padding-bottom: 50px;
+  background: #e8e9d1;
+  grid-template-rows: minmax(auto, 200px) minmax(auto, 300px) minmax(
+      auto,
+      350px
+    );
+  margin-bottom: 40px;
+}
+
+.flexcontainer1 {
+  float: left;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.flexcontainer2 {
+  float: left;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.title1 {
+  margin-top: 310px;
+  position: flex;
+  left: 900px;
+  height: 15px;
+  top: 5000px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  color: #1e212c;
+}
+
+.title2 {
+  position: flex;
+  left: 743px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 950;
+  font-size: 46px;
+  color: #1e212c;
+}
+
+.text {
+  margin-left: -50px;
+  display: flex;
+  float: center;
+  margin-top: 60px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 140%;
+  text-align: center;
+  color: #1e212c;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  float: center;
+  margin-left: 114px;
+}
+
+.column {
+  float: left;
+  margin-top: 1px;
+  padding: 4px;
+  margin-left: 45px;
+  
+}
+
+.stick {
+  display: flex;
+  width: 16px;
+  height: 0px;
+  left: 25px;
+  top: 0px;
+  margin: 0px 45px;
+}

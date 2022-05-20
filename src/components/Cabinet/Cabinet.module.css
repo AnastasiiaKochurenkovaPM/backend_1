@@ -51,11 +51,11 @@
 .btn {
     background: var(--color-primary);
     color: var(--color-white);
-    width: 300px;
+    width: 340px;
     cursor: pointer;
     border-radius: 65px;
-    font-size: 14px;
-    height: 44px;
+    font-size: 22px;
+    height: 100px;
     white-space: nowrap;
     line-height: 300%;
     font-family: Inter,sans-serif;

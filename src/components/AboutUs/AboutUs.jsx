@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import FirstSlideAbout from "./FirstSlideAbout/FirstSlide";
+import SecondSlideAbout from "./SecondSlideAbout/SecondSlide";
+import ThirdSlideAbout from "./ThirdSlideAbout/ThirdSlide";
 
 const AboutUs = () => {
   return (
-    <div>AboutUs</div>
-  )
-}
+    <main>
+      <FirstSlideAbout />
+      <SecondSlideAbout />
+      <ThirdSlideAbout />
+    </main>
+  );
+};
 
-export default AboutUs
+export default AboutUs;

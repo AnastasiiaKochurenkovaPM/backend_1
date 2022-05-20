@@ -1,0 +1,34 @@
+.thirdSlide {
+    display: grid;
+    grid-template: minmax(1000px,auto) / 1fr minmax(400px,auto) minmax(auto,700px) minmax(400px,auto) 1fr;
+    grid-template-areas: ". paw-left diagram paw-right . ";
+    padding: 20px;
+}
+
+.paw__right {
+    grid-area: paw-right;
+    align-self: center;
+    justify-self: end;
+    padding-top: 50%;
+}
+.paw__left {
+    grid-area: paw-left;
+    align-self: center;
+    justify-self: start;
+    padding-bottom: 50%;
+}
+.diagram {
+    grid-area: diagram;
+    align-self: center ;
+    justify-self: center;
+}
+
+.text {
+    text-align: center;
+    padding-top: 30px;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: 0.145em;
+    white-space: nowrap;
+}
+
