@@ -7,8 +7,8 @@ const {Shelters} = require('../model/models')
     //create advertations
     const createAdvert = async(req,res) => {
 
-            const {nameAnimal, type, sex, age, nameperson, city, contact, ster, vac, ShelterId} = req.body;
-            //const {ShelterId} = req.session.userId/////не зчитується
+            const {nameAnimal, type, sex, age, nameperson, city, contact, ster, vac} = req.body;
+            const {ShelterId} = req.session.userId/////не зчитується
             const {img1} = req.files
             let fileName1 = uuid.v4() + ".jpg"
             img1.mv(path.resolve(__dirname, '..', 'static', fileName1))
