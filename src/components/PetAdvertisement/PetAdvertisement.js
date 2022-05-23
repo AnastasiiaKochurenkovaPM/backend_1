@@ -1,11 +1,12 @@
 import './PetAdvertisement.css';
-import React from "react";
+import React, { Component } from "react";
 import { useState } from 'react';
 import FormInput1 from "./FormInput1";
 import FormInput from "../Registration/FormInput";
 import Photo from "./photoAdd";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
+import './Photo.css';
 
 
 const PetAdvertisement = () => {
@@ -19,6 +20,19 @@ const PetAdvertisement = () => {
         phonenumber: "",
         require:true,
     });
+
+
+    const [state1, setState1] = useState({
+        profileImg:'https://i.pinimg.com/236x/b7/fb/fb/b7fbfb42d40791d1a260fd0328c645bc.jpg',
+    })
+
+    const [state2, setState2] = useState({
+        profileImg2:'https://i.pinimg.com/564x/35/04/aa/3504aac21731b68dc957aaa9486a3a84.jpg',
+    })
+
+    const [state3, setState3] = useState({
+        profileImg3:'https://i.pinimg.com/564x/35/04/aa/3504aac21731b68dc957aaa9486a3a84.jpg'
+    })
 
     const inputs=[
         {
@@ -68,12 +82,45 @@ const PetAdvertisement = () => {
         }
     ]
 
+
+
     const onChange=(e)=>{
         setValues({...values,[e.target.name]: e.target.value})
     }
     const onChange2=(e)=>{
         setValues2({...values,[e.target.name]: e.target.value})
     }
+
+
+    const imageHandler = (e) => {
+        const reader = new FileReader();
+        reader.onload = () =>{
+            if(reader.readyState === 2){
+               setState1({profileImg: reader.result})
+            }
+        }
+        reader.readAsDataURL(e.target.files[0])
+
+    };
+    const imageHandler2 = (e) => {
+        const reader2 = new FileReader();
+        reader2.onload = () =>{
+            if(reader2.readyState === 2){
+                setState2({profileImg2: reader2.result})
+            }
+        }
+        reader2.readAsDataURL(e.target.files[0])
+    };
+
+    const imageHandler3 = (e) => {
+       const reader3 = new FileReader();
+        reader3.onload = () =>{
+             if(reader3.readyState === 2){
+               setState3({profileImg3: reader3.result})
+            }
+         }
+        reader3.readAsDataURL(e.target.files[0])
+    };
 
     const navigate = useNavigate()
 
@@ -89,9 +136,9 @@ const PetAdvertisement = () => {
             age: values2.age,
             ster: values2.confirm1,
             vac: values2.confirm2,
-            img1: Photo.image1,
-            img2: Photo.image2,
-            img3: Photo.image3
+            img1: state1.profileImg,
+            img2: state2.profileImg2,
+            img3: state3.profileImg3
 
         }, {
             withCredentials : true
@@ -113,7 +160,7 @@ const PetAdvertisement = () => {
                         ))}
                     </div>
                     <div className="select--type-animal">
-                        <p className="label-select">Вид тварини</p>
+                    <p className="label-select">Вид тварини</p>
                         <select className="Select-Form" name="type" required="required">
                             <option value="">Оберіть вид тварини</option>
                             <option value="cat">Кіт</option>
@@ -175,11 +222,48 @@ const PetAdvertisement = () => {
                     
                 </div>
                 <div className="AddPhoto">
-                <Photo/>
+                {/* <Photo/>  */}
+
+                <div>
+                <div className="container">
+                    <div className="img-holder">
+                        <img src={state1.profileImg} alt="" id="img" className="img" />
+                    </div>
+                    <input type="file" accept="image/*" name="image1" id="input" onChange={imageHandler} />
+                    <div className="label">
+                        <label className="image-upload" htmlFor="input">
+                        </label>
+                    </div>
+                </div>
+                <div className="smaller-download">
+                    <div className="container2">
+                        <div className="img-holder2">
+                            <img src={state2.profileImg2} alt="" id="img2" className="img2" />
+                        </div>
+                        <input type="file" accept="image2/*" name="image3" id="input2" onChange={imageHandler2} />
+                        <div className="label2">
+                            <label className="image-upload2" htmlFor="input2">
+                            </label>
+                        </div>
+                    </div>
+                    <div className="container2">
+                        <div className="img-holder2">
+                            <img src={state3.profileImg3} alt="" id="img3" className="img2" />
+                        </div>
+                        <input type="file" accept="image{/*" name="image2" id="input3" onChange={imageHandler3} />
+                        <div className="label2">
+                            <label className="image-upload2" htmlFor="input3">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
                 </div>
           </div>
         </div>
     );
 }
+
 
 export default PetAdvertisement;

@@ -16,6 +16,7 @@ export class Photo extends Component {
             }
         }
         reader.readAsDataURL(e.target.files[0])
+
     };
     imageHandler2 = (e) => {
         const reader2 = new FileReader();

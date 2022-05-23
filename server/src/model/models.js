@@ -16,7 +16,7 @@ const Adverts = db.define('Adverts', {
     id: {type:DataTypes.INTEGER, allowNull: false, primaryKey: true, autoIncrement: true},
     nameAnimal: {type:DataTypes.STRING, allowNull: false},
     type: {type:DataTypes.STRING, allowNull: false},
-    sex:{type:DataTypes.STRING, allowNull: false, unique: true},
+    sex:{type:DataTypes.STRING, allowNull: false},
     age: {type:DataTypes.STRING, allowNull: false},
     nameperson: {type:DataTypes.STRING, allowNull: false},
     city:{type:DataTypes.STRING, allowNull: false},
