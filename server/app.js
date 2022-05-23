@@ -19,15 +19,15 @@ app.use(cors({ credentials: true, origin: true }))
 app.use(express.json());
 
 app.use(express.static(path.resolve(__dirname, 'src/static')));
-app.use(fileUpload({}));
+app.use(fileUpload());
 
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const database = new Sequelize("heroku_f520802781111f9", "bf7ff2ffc45a70", "80c38566", {
   host: "eu-cdbr-west-02.cleardb.net",
-  logging: false,
   dialect: "mysql",
-  storage: "./session.mysql"
+  storage: "./session.mysql",
+  logging : false
 });
 
 const sessionStore = new SequelizeStore({
@@ -63,10 +63,12 @@ app.use((req, res, next)=>{
   next();
 })
 
+
+
 const start = async () => {
   try {
-    await sequelize.authenticate();
-    await sequelize.sync();
+    await sequelize.authenticate({ logging: false });
+    await sequelize.sync({ logging: false });
     app.listen(port, () =>{
       console.log(`Listening on port ${port}`);
   }) 
