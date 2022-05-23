@@ -23,20 +23,20 @@ const PetAdvertisement = () => {
 
 
     const [state1, setState1] = useState({
-        file       : null,
-        preview    : 'https://i.pinimg.com/236x/b7/fb/fb/b7fbfb42d40791d1a260fd0328c645bc.jpg',
-        profileImg : 'https://i.pinimg.com/236x/b7/fb/fb/b7fbfb42d40791d1a260fd0328c645bc.jpg',
+        // file       : null,
+        preview: 'https://i.pinimg.com/236x/b7/fb/fb/b7fbfb42d40791d1a260fd0328c645bc.jpg',
+        profileImg: 'https://i.pinimg.com/236x/b7/fb/fb/b7fbfb42d40791d1a260fd0328c645bc.jpg',
     })
 
     const [state2, setState2] = useState({
-        file       : null,
-        preview    : 'https://i.pinimg.com/236x/b7/fb/fb/b7fbfb42d40791d1a260fd0328c645bc.jpg',
+        file: null,
+        preview: 'https://i.pinimg.com/236x/b7/fb/fb/b7fbfb42d40791d1a260fd0328c645bc.jpg',
         profileImg2: 'https://i.pinimg.com/564x/35/04/aa/3504aac21731b68dc957aaa9486a3a84.jpg',
     })
 
     const [state3, setState3] = useState({
-        file       : null,
-        preview    : 'https://i.pinimg.com/236x/b7/fb/fb/b7fbfb42d40791d1a260fd0328c645bc.jpg',
+        file: null,
+        preview: 'https://i.pinimg.com/236x/b7/fb/fb/b7fbfb42d40791d1a260fd0328c645bc.jpg',
         profileImg3: 'https://i.pinimg.com/564x/35/04/aa/3504aac21731b68dc957aaa9486a3a84.jpg'
     })
 
@@ -89,7 +89,6 @@ const PetAdvertisement = () => {
     ]
 
 
-
     const onChange = (e) => {
         setValues({ ...values, [e.target.name]: e.target.value })
     }
@@ -97,85 +96,75 @@ const PetAdvertisement = () => {
         setValues2({ ...values, [e.target.name]: e.target.value })
     }
 
-    const imageHandler = (e) => {
-        setState1({file: e.target.files[0]})
+    const imageHandler = async (e) => {
+        const formData = new FormData();
 
-        const reader = new FileReader();
-        reader.onload = () => {
-            if (reader.readyState === 2) {
-                setState1({ preview: reader.result })
-            }
-        }
-        reader.readAsDataURL(e.target.files[0])
+        formData.append('file', e.target.files[0]);
+        const response = await axios.post('http://localhost:3001/files', formData, {
+            'content-type': 'multipart/form-data'
+        })
 
+        setState1({
+            preview : response.data.url
+        })
     };
-    const imageHandler2 = (e) => {
-        setState2({file: e.target.files[0]})
+    const imageHandler2 = async (e) => {
+        const formData = new FormData();
 
-        const reader = new FileReader();
-        reader.onload = () => {
-            if (reader.readyState === 2) {
-                setState2({ preview: reader.result })
-            }
-        }
-        reader.readAsDataURL(e.target.files[0])
-        // const reader2 = new FileReader();
-        // reader2.onload = () => {
-        //     if (reader2.readyState === 2) {
-        //         setState2({ profileImg2: reader2.result })
-        //     }
-        // }
-        // reader2.readAsDataURL(e.target.files[0])
+        formData.append('file', e.target.files[0]);
+        const response = await axios.post('http://localhost:3001/files', formData, {
+            'content-type': 'multipart/form-data'
+        })
+
+        setState2({
+            preview : response.data.url
+        })
     };
 
-    const imageHandler3 = (e) => {
-        setState3({file: e.target.files[0]})
+    const imageHandler3 = async (e) => {
+        const formData = new FormData();
 
-        const reader = new FileReader();
-        reader.onload = () => {
-            if (reader.readyState === 2) {
-                setState3({ preview: reader.result })
-            }
-        }
-        reader.readAsDataURL(e.target.files[0])
-        // const reader3 = new FileReader();
-        // reader3.onload = () => {
-        //     if (reader3.readyState === 2) {
-        //         setState3({ profileImg3: reader3.result })
-        //     }
-        // }
-        // reader3.readAsDataURL(e.target.files[0])
+        formData.append('file', e.target.files[0]);
+        const response = await axios.post('http://localhost:3001/files', formData, {
+            'content-type': 'multipart/form-data'
+        })
+
+        setState3({
+            preview : response.data.url
+        })
     };
 
     const navigate = useNavigate()
 
-const createAd = async (e) => {
-    e.preventDefault()
-    const formData = new FormData()
-    formData.append('img1', state1.file);
-    formData.append('img2', state2.file);
-    formData.append('img3', state3.file);
-    formData.append('nameAnimal', values.name);
-    formData.append('nameparson', values.username);
-    formData.append('city', values.city);
-    formData.append('phone', values.phonenumber);
-    formData.append('type', values2.type);
-    formData.append('sex', values2.sex);
-    formData.append('age', values2.age);
-    formData.append('ster', values2.confirm1);
-    formData.append('vac', values2.confirm2);
-    const result = await axios.post("http://localhost:3001/Advert", formData, {
-        withCredentials: true,
-        headers : {
-            'Content-Type': 'multipart/form-data'
-        }
-    })
+    const createAd = async (e) => {
+        e.preventDefault()
+        
+        const result = await axios.post("http://localhost:3001/Advert", {
+            img1: state1.preview,
+            img2: state2.preview,
+            img3: state3.preview,
+            nameAnimal: values.name,
+            nameparson: values.username,
+            city: values.city,
+            phone: values.phonenumber,
+            type: values2.type,
+            sex: values2.sex,
+            age: values2.age,
+            ster: values2.confirm1,
+            vac: values2.confirm2,
+        }, {
+            withCredentials: true
+        })
 
-    if (result.status === 200) navigate('/Cabinet')
-    else {
-        console.log(result.data)
-    }        
-}
+        if (result.status === 200) navigate('/Cabinet')
+        else {
+            console.log(result.data)
+        }
+    }
+
+    const handleAnimalType = (event) => {
+        console.log(event.target.value)
+    }
 
     return (
         <div>
@@ -191,7 +180,7 @@ const createAd = async (e) => {
                         </div>
                         <div className="select--type-animal">
                             <p className="label-select">Вид тварини</p>
-                            <select className="Select-Form" name="type" required="required">
+                            <select className="Select-Form" name="type" required="required" onChange={handleAnimalType}>
                                 <option value="">Оберіть вид тварини</option>
                                 <option value="cat">Кіт</option>
                                 <option value="dog">Собака</option>
